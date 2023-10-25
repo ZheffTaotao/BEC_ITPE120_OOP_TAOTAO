@@ -1,69 +1,55 @@
 public class ShapeDemo {
     public static void main(String[] args) {
         for (Shape shape : Shape.values()) {
-            System.out.println("Shape: " + shape.name());
-            System.out.println("Area: " + shape.calculateArea());
-            System.out.println("Perimeter: " + shape.calculatePerimeter());
-            System.out.println();
-enum Shape {
-    Circle(4.0) {
-        
-        double calculateArea() {
-            return Math.PI * radius * radius;
+            System.out.println(shape + " - Area: " + shape.calculateArea() + ", Perimeter: " + shape.calculatePerimeter());
         }
-
-    
-        double calculatePerimeter() {
-            return 2 * Math.PI * radius;
-        }
-    },
-    Square(5.0) {
-        
-        double calculateArea() {
-            return sideLength * sideLength;
-        }
-
-        
-        double calculatePerimeter() {
-            return 4 * sideLength;
-        }
-    },
-    Triangle(3.0, 4.0, 5.0) {
-        
-        double calculateArea() {
-            double s = (a + b + c) / 2;
-            return Math.sqrt(s * (s - a) * (s - b) * (s - c));
-        }
-
-        
-        double calculatePerimeter() {
-            return a + b + c;
-        }
-    };
-
-    // Common properties for shapes
-    double radius;
-    double sideLength;
-    double a, b, c;
-
-    Shape(double radius) {
-        this.radius = radius;
     }
 
-    Shape(double sideLength) {
-        this.sideLength = sideLength;
-    }
+    public enum Shape {
+        CIRCLE {
+            @Override
+            public double calculateArea() {
+                double radius = 5.0; // Replace with the actual radius
+                return Math.PI * radius * radius;
+            }
 
-    Shape(double a, double b, double c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-    }
+            @Override
+            public double calculatePerimeter() {
+                double radius = 5.0; // Replace with the actual radius
+                return 2 * Math.PI * radius;
+            }
+        },
+        SQUARE {
+            @Override
+            public double calculateArea() {
+                double sideLength = 4.0; // Replace with the actual side length
+                return sideLength * sideLength;
+            }
 
-    abstract double calculateArea();
+            @Override
+            public double calculatePerimeter() {
+                double sideLength = 4.0; // Replace with the actual side length
+                return 4 * sideLength;
+            }
+        },
+        TRIANGLE {
+            @Override
+            public double calculateArea() {
+                double base = 6.0; // Replace with the actual base length
+                double height = 4.0; // Replace with the actual height
+                return 0.5 * base * height;
+            }
 
-    abstract double calculatePerimeter();
-}
-        }
+            @Override
+            public double calculatePerimeter() {
+                double side1 = 3.0; // Replace with the length of the first side
+                double side2 = 4.0; // Replace with the length of the second side
+                double side3 = 5.0; // Replace with the length of the third side
+                return side1 + side2 + side3;
+            }
+        };
+
+        public abstract double calculateArea();
+        public abstract double calculatePerimeter();
     }
 }
