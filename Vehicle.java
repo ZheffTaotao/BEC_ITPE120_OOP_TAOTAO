@@ -1,21 +1,16 @@
 class Vehicle {
-    private String name;
-    private int year;
+    private String brand;
 
-    public Vehicle(String name, int year) {
-        this.name = name;
-        this.year = year;
+    // Parameterized constructor in the base class
+    public Vehicle(String brand) {
+        this.brand = brand;
     }
 
     public void start() {
-        System.out.println("Vehicle " + name + " is starting.");
+        System.out.println("Vehicle is starting.");
     }
 
-    public void stop() {
-        System.out.println("Vehicle " + name + " is stopping.");
+    public void displayBrand() {
+        System.out.println("Brand: " + brand);
     }
 }
-
-
-
-
